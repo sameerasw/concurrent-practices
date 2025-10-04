@@ -13,9 +13,18 @@ public class BankAccount {
         return balance.doubleValue();
     }
 
+//    public synchronized void deposit(double amount){
+//        if (amount > 0){
+//            this.balance.add(new BigDecimal(amount));
+//            System.out.println("Deposited " + amount + " " + Thread.currentThread().getName());
+//        } else {
+//            System.out.println("Amount is negative");
+//        }
+//    }
+
     public synchronized void deposit(double amount){
         if (amount > 0){
-            this.balance.add(new BigDecimal(amount));
+            this.balance = new BigDecimal(this.getBalance() + amount);
             System.out.println("Deposited " + amount + " " + Thread.currentThread().getName());
         } else {
             System.out.println("Amount is negative");

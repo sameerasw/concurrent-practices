@@ -1,15 +1,17 @@
-public class Mother implements Runnable {
+public class Mother<E> implements Runnable {
     private final Plate plate;
+    private E[] items;
 
-    public Mother(Plate plate) {
+    public Mother(Plate plate, E[] items) {
         this.plate = plate;
+        this.items = items;
     }
 
     @Override
     public void run() {
-        for (int i = 1; i <= 10; i++) {
-            plate.put("food " + i);
-            System.out.println(Thread.currentThread().getName() + " serves: " + "food " + i);
+        for (E food : items) {
+            plate.put(food);
+            System.out.println(Thread.currentThread().getName() + " serves: " + "food " + food);
         }
     }
 }

@@ -1,4 +1,4 @@
-public class Child implements Runnable {
+public class Child<E> implements Runnable {
     private final Plate plate;
 
     public Child(Plate plate) {
@@ -8,7 +8,7 @@ public class Child implements Runnable {
     @Override
     public void run() {
         while (true) {
-            String value = plate.get();
+            E value = (E) plate.get();
             if (value == null) {
                 break;
             }

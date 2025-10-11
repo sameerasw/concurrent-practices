@@ -1,4 +1,4 @@
-public interface Plate {
-    public void put(String food);
-    public String get();
+public interface Plate<E> {
+    public void put(E food);
+    public E get();
 }

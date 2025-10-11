@@ -1,6 +1,6 @@
 void main(){
-    Plate plate = new SingleSlotPlate();
-    plate = new MultiSlotPlate(4);
+    Plate<Integer> plate = new SingleSlotPlate<>();
+    plate = new MultiSlotPlate<>(4);
 
     int noOfProducer = 5;
     int noOfConsumer = 2;
@@ -9,11 +9,15 @@ void main(){
     Thread[] consumers = new Thread[noOfConsumer];
 
     for (int i = 0; i < noOfProducer; i++) {
-        producers[i] = new Thread(new Mother(plate), "Mother " + i );
+        Integer[] product = new Integer[10];
+        for (int j = 0; j < product.length; j++) {
+            product[j] = i * j + 1;
+        }
+        producers[i] = new Thread(new Mother<Integer>(plate, product), "Mother " + i );
     }
 
     for (int i = 0; i < noOfConsumer; i++) {
-        consumers[i] = new Thread(new Child(plate), "Child " + i);
+        consumers[i] = new Thread(new Child<>(plate), "Child " + i);
     }
 
 //    Thread producer = new Thread(new Mother(plate), "Mother");

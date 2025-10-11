@@ -1,7 +1,7 @@
 import java.util.*;
 
-public class MultiSlotPlate implements Plate {
-    private List<String> plate = new ArrayList<>();
+public class MultiSlotPlate<E> implements Plate<E> {
+    private List<E> plate = new ArrayList<>();
     private int capacity;
     private boolean closed;
 
@@ -11,7 +11,7 @@ public class MultiSlotPlate implements Plate {
     }
 
     @Override
-    public synchronized void put(String food) {
+    public synchronized void put(E food) {
         while(!closed && plate.size() == capacity){
             try {
                 wait();
@@ -24,7 +24,7 @@ public class MultiSlotPlate implements Plate {
     }
 
     @Override
-    public synchronized String get() {
+    public synchronized E get() {
         while(!closed && plate.isEmpty()){
             try {
                 wait();
@@ -37,7 +37,7 @@ public class MultiSlotPlate implements Plate {
             return null;
         }
 
-        String food = plate.remove(0);
+        E food = plate.remove(0);
         notifyAll();
         return food;
     }

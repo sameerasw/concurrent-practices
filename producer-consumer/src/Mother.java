@@ -1,18 +1,17 @@
 public class Mother implements Runnable {
     private final Plate plate;
-    private final int noOfServings;
 
-    public Mother( Plate plate, int noOfServings ) {
+    public Mother( Plate plate) {
         this.plate = plate;
-        this.noOfServings = noOfServings;
     }
 
     @Override
     public void run() {
-        for (int i = 0; i < noOfServings; i++) {
+        for (int i = 0; i < 10; i++) {
             plate.produce("food");
             System.out.println(Thread.currentThread().getName() + " produced food " + i);
         }
+        plate.produce("poison"); // poison pill
     }
 
 }

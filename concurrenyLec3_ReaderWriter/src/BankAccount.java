@@ -42,7 +42,7 @@ public class BankAccount {
                 throw new IllegalArgumentException("Amount cannot be negative");
             }
 
-            if (amount.compareTo(balance) < 0) {
+            if (amount.compareTo(balance) > 0) {
                 throw new IllegalArgumentException("Amount can not be greater than balance");
             }
 

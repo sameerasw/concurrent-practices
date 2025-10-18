@@ -17,7 +17,7 @@ void main(){
     }
 
     for (int i = 0; i < noOfConsumer; i++) {
-        consumers[i] = new Thread(new Child<>(plate), "Child " + i);
+        consumers[i] = new Thread(new Child< >(plate), "Child " + i);
     }
 
 //    Thread producer = new Thread(new Mother(plate), "Mother");

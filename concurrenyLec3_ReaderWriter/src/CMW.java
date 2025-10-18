@@ -5,11 +5,10 @@ public class CMW implements Runnable {
 
     public CMW(BankAccount bankAccount) {
         this.bankAccount = bankAccount;
-
     }
 
     @Override
     public void run() {
-        bankAccount.deposit(BigDecimal.valueOf(200));
+        bankAccount.deposit(BigDecimal.valueOf(25000));
     }
 }

@@ -18,7 +18,7 @@ public class Mailbox {
         mutex = new Semaphore(1);
     }
 
-    public synchronized void put(int value) throws InterruptedException {
+    public  void put(int value) throws InterruptedException {
             try {
                 emptySlots.acquire(); // an item is added to the queue if a permit awaits or wait.
                 mutex.acquire(); // acquire lock before entering the critical section (shared variable queue)
@@ -30,7 +30,7 @@ public class Mailbox {
             }
     }
 
-    public synchronized int get() throws InterruptedException {
+    public  int get() throws InterruptedException {
             try{
                 fullSlots.acquire();
                 mutex.acquire();

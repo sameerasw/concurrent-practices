@@ -1,3 +1,5 @@
+package com.sameerasw.concurrent;
+
 public class Consumer implements Runnable {
     private Mailbox mailbox;
 

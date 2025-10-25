@@ -1,3 +1,5 @@
+package com.sameerasw.concurrent;
+
 public class Mailbox {
     private int mail = -1;
 

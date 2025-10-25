@@ -1,3 +1,5 @@
+package com.sameerasw.concurrent;
+
 public class Producer implements Runnable {
     private Mailbox mailbox;
 

@@ -1,3 +1,5 @@
+package com.sameerasw.concurrent;
+
 import java.util.concurrent.locks.*;
 
 class Inventory {

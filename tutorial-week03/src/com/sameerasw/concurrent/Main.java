@@ -2,9 +2,9 @@ void main() {
 
 //    Q1 Threads
 
-//    Runnable counter1 = new Counter();
-//    Runnable counter2 = new Counter();
-//    Runnable counter3 = new Counter();
+//    Runnable counter1 = new com.sameerasw.concurrent.Counter();
+//    Runnable counter2 = new com.sameerasw.concurrent.Counter();
+//    Runnable counter3 = new com.sameerasw.concurrent.Counter();
 //
 //    Thread counter1thread = new Thread(counter1, "counter1");
 //    Thread counter2thread = new Thread(counter2, "counter2");
@@ -16,13 +16,13 @@ void main() {
 
 //    Q2 producer consumer
 
-//    Mailbox mailbox = new Mailbox();
+//    com.sameerasw.concurrent.Mailbox mailbox = new com.sameerasw.concurrent.Mailbox();
 //
-//    Runnable producer = new Producer(mailbox);
-//    Runnable consumer = new Consumer(mailbox);
+//    Runnable producer = new com.sameerasw.concurrent.Producer(mailbox);
+//    Runnable consumer = new com.sameerasw.concurrent.Consumer(mailbox);
 //
-//    Thread producerThread = new Thread(producer, "Producer");
-//    Thread consumerThread = new Thread(consumer, "Consumer");
+//    Thread producerThread = new Thread(producer, "com.sameerasw.concurrent.Producer");
+//    Thread consumerThread = new Thread(consumer, "com.sameerasw.concurrent.Consumer");
 //
 //    producerThread.start();
 //    consumerThread.start();

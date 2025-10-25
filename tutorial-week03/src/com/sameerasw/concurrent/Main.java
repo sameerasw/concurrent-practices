@@ -1,4 +1,9 @@
-void main() {
+import com.sameerasw.concurrent.Inventory;
+import com.sameerasw.concurrent.Mailbox;
+import com.sameerasw.concurrent.Producer;
+import com.sameerasw.concurrent.Consumer;
+
+void main() throws InterruptedException {
 
 //    Q1 Threads
 
@@ -16,30 +21,39 @@ void main() {
 
 //    Q2 producer consumer
 
-//    com.sameerasw.concurrent.Mailbox mailbox = new com.sameerasw.concurrent.Mailbox();
-//
-//    Runnable producer = new com.sameerasw.concurrent.Producer(mailbox);
-//    Runnable consumer = new com.sameerasw.concurrent.Consumer(mailbox);
-//
-//    Thread producerThread = new Thread(producer, "com.sameerasw.concurrent.Producer");
-//    Thread consumerThread = new Thread(consumer, "com.sameerasw.concurrent.Consumer");
-//
-//    producerThread.start();
-//    consumerThread.start();
+    Mailbox mailbox = new Mailbox();
+
+    Runnable producer = new Producer(mailbox);
+    Runnable consumer = new Consumer(mailbox);
+
+    Thread producerThread = new Thread(producer, "Producer");
+    Thread consumerThread = new Thread(consumer, "Consumer");
+
+    producerThread.start();
+    consumerThread.start();
+
+    producerThread.join(100);
+    consumerThread.join(100);
+    // main thread will go into the timed waiting state either
+    // 1. 100ms or
+    // 2. until the prod and consumer completes the execution (dies down)
+    // whichever happens first.
 
 //    Q3 Reader writer
 
-    Inventory inv = new Inventory();
-    Thread writer = new Thread(() -> {
-        for (int i = 0; i < 5; i++)
-            inv.updateStock("Manager", (i % 2 == 0 ? +10 : -5));
-    });
-    for (int i = 1; i <= 3; i++) {
-        final int id = i;
-        new Thread(() -> {
-            for (int j = 0; j < 10; j++)
-                inv.readStock("Customer-" + id);
-        }).start();
-    }
-    writer.start();
+//    Inventory inv = new Inventory();
+//    Thread writer = new Thread(() -> {
+//        for (int i = 0; i < 5; i++)
+//            inv.updateStock("Manager", (i % 2 == 0 ? +10 : -5));
+//    });
+//    for (int i = 1; i <= 3; i++) {
+//        final int id = i;
+//        new Thread(() -> {
+//            for (int j = 0; j < 10; j++)
+//                inv.readStock("Customer-" + id);
+//        }).start();
+//    }
+//    writer.start();
+
+    System.out.println("========= ALL DONE ========");
 }

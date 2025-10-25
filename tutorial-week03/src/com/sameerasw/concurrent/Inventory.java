@@ -2,7 +2,7 @@ package com.sameerasw.concurrent;
 
 import java.util.concurrent.locks.*;
 
-class Inventory {
+public class Inventory {
     private int stock = 50;
     private final ReadWriteLock rw = new ReentrantReadWriteLock(true);
 

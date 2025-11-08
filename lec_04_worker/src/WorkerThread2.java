@@ -20,11 +20,11 @@ public class WorkerThread2 implements Runnable {
         for (int i = start; i <= end; i++) {
             System.out.println(name + " processing: " + i);
             sum += i;
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
         System.out.println( name + " : sum = " + sum);
     }

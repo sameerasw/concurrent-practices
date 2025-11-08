@@ -2,7 +2,7 @@ import com.sameerasw.tut07.Barista;
 import com.sameerasw.tut07.Cafe;
 import com.sameerasw.tut07.Customer;
 
-void main() {
+void main() throws InterruptedException {
     Cafe cafe = new Cafe();
 
     Runnable customer = new Customer(cafe);
@@ -14,5 +14,6 @@ void main() {
     customerThread.start();
     baristaThread.start();
 
-
+    customerThread.join();
+    baristaThread.join();
 }
